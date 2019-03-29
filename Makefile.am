@@ -34,3 +34,8 @@ tests/run-test-suite:
 	-git branch --track run-test-suite origin/run-test-suite
 	-git worktree prune
 	git worktree add $@ run-test-suite
+
+docker-dist:
+	git branch --track packaging origin/packaging
+	git worktree add packaging packaging
+	make -C packaging/docker libyaml-dist
